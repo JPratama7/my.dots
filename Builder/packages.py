@@ -14,12 +14,13 @@ BASE = Packages(
         	"timeshift", "qt5-graphicaleffects", "qt5-svg",  "qt5-quickcontrols2", "clipnotify",
 			"xdg-desktop-portal-gtk", "gnome-disk-utility", "evince", "neovim", "tmux", "cowsay", "polkit-gnome",
 			"rofimoji", "wmname", "pyenv", "xdg-desktop-portal", "ttf-hack-nerd", "networkmanager", "noto-fonts", 
-            "noto-fonts-cjk", "noto-fonts-emoji", "noto-fonts-extra"
+            "noto-fonts-cjk", "noto-fonts-emoji", "noto-fonts-extra", "gcr"
 		],
 		bspwm_packages=["xorg", "bspwm", "sxhkd", "xorg-xinit", "xclip", "feh", "lxappearance", "polybar", "xorg-xrandr", "xsettingsd"],
 		hyprland_packages=[
 			"hyprland", "waybar", "hyprlock", "swww", "cliphist", "wl-clipboard", "xdg-desktop-portal-hyprland", "qt5-wayland", "qt6-wayland",
-			"xdg-desktop-portal-wlr", "hypridle"],
+			"xdg-desktop-portal-wlr", "hypridle"
+		],
         sddm_packages=[
             "sddm", "sddm-theme-archlinux", "sddm-theme-breeze", "sddm-theme-breeze-archlinux"
 		],
@@ -70,7 +71,8 @@ CUSTOM = {
         "obsidian": PackageInfo("A powerful knowledge base that works on top of a local folder of plain text Markdown files", recommended=True),
         "postgresql": PackageInfo("Sophisticated object-relational DBMS", recommended=True),
         "pgadmin4-desktop": PackageInfo("The desktop user interface for pgAdmin", aur=True, recommended=True),
-        "redis": PackageInfo("An in-memory database that persists on disk")
+        "redis": PackageInfo("An in-memory database that persists on disk"),
+        "code": PackageInfo("A powerful code editor", recommended=True),
 	},
     "social_media": {
 		"telegram-desktop": PackageInfo("Popular messenger", recommended=True, selected=True),
