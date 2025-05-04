@@ -20,7 +20,7 @@ BASE = Packages(
 		hyprland_packages=[
 			"hyprland", "waybar", "hyprlock", "swww", "cliphist", "wl-clipboard", "xdg-desktop-portal-hyprland", "qt5-wayland", "qt6-wayland",
 			"xdg-desktop-portal-wlr", "hypridle"],
-        sddm=[
+        sddm_packages=[
             "sddm", "sddm-theme-archlinux", "sddm-theme-breeze", "sddm-theme-breeze-archlinux"
 		],
 	),
@@ -57,7 +57,7 @@ DRIVERS = {
 	"nvidia": Packages(
 		pacman=DistributionPackages(
 			common=[
-				"nvidia-dkms", "nvidia-utils", "lib32-nvidia-utils",
+				"nvidia-dkms", "fvidia-utils", "lib32-nvidia-utils",
 				"nvidia-settings", "vulkan-icd-loader", "lib32-vulkan-icd-loader",
 				"lib32-opencl-nvidia", "opencl-nvidia", "libxnvctrl"
 			]
