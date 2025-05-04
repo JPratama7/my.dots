@@ -144,12 +144,13 @@ class Question:
                 default=firefox_choices,
                 carousel=True,
             ),
-            QuestionCheckbox(
+            QuestionList(
                 name="sddm",
-                message="7) Would you like to install SDDM?",
+                message="8) Would you like to install SDDM?",
                 choices=["Yes", "No"],
                 default="Yes",
                 carousel=True,
+                validate=True
             ),
         ]
 
@@ -164,7 +165,7 @@ class Question:
         ]
 
         if answers["sddm"] == "Yes":
-            BASE.pacman.common.append(BASE.pacman.sddm)
+            BASE.pacman.common.extend(BASE.pacman.sddm_packages)
 
         if answers["aur_helper"] == "paru":
             aur_helper = AurHelper.PARU
