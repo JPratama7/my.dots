@@ -72,7 +72,9 @@ class Builder:
             unpaywall=self.build_options.ff_unpaywall,
             tampermonkey=self.build_options.ff_tampermonkey,
         )
-        AppsManager.configure_code()
+
+        if CUSTOM["development"]["vscode"].selected:
+            AppsManager.configure_vscode()
 
         self.daemons_setting()
         PostInstallation.apply()
