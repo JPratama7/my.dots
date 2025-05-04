@@ -2,6 +2,7 @@ import os
 import subprocess
 import tempfile
 import traceback
+import pathlib
 
 from loguru import logger
 from packages import CUSTOM
@@ -15,8 +16,39 @@ class PostInstallation:
         PostInstallation._add_to_gamemode_group()
         PostInstallation._set_default_term()
         PostInstallation._ensure_en_us_locale()
+        PostInstallation._set_gpg_gui_agent()
         logger.info("The post-installation configuration is complete!")
 
+    @staticmethod
+    def _set_gpg_gui_agent():
+        data = ""
+        try:
+            current = os.read(pathlib.Path.home() / ".gnupg/gpg-agent.conf")
+            if current:
+                data = current.decode("utf-8")
+        except Exception:
+            logger.error(
+                f"Error reading gpg-agent.conf: {traceback.format_exc()}"
+            )
+        if data.find("pinentry-program") == -1:
+            data += "pinentry-program /usr/bin/pinentry-gnome3\n"
+        if data.find("allow-loopback-pinentry") == -1:
+            data += "allow-loopback-pinentry\n"
+        if data.find("default-cache-ttl") == -1:
+            data += "default-cache-ttl 600\n"
+        if data.find("max-cache-ttl") == -1:
+            data += "max-cache-ttl 7200\n"
+
+        try:
+            with open(pathlib.Path.home() / ".gnupg/gpg-agent.conf", "w") as f:
+                f.write(data)
+            subprocess.run(["gpg-connect-agent", "reloadagent"], check=True)
+            logger.success("GPG GUI agent is set!")
+        except Exception:
+            logger.error(
+                f"Error writing gpg-agent.conf: {traceback.format_exc()}"
+            )
+        
     @staticmethod
     def _ensure_en_us_locale():
         locale_file = "/etc/locale.gen"
