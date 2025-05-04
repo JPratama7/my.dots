@@ -13,6 +13,7 @@ class DistributionPackages:
     common: List[str] = field(default_factory=list)
     bspwm_packages: List[str] = field(default_factory=list)
     hyprland_packages: List[str] = field(default_factory=list)
+    sddm_packages: List[str] = field(default_factory=list)
 
 
 @dataclass
