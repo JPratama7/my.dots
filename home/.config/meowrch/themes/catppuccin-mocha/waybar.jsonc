@@ -197,7 +197,8 @@
         "format": "{short} {variant}",
         "rotate": 0,
         "min-length": 2,
-        "tooltip": false
+        "tooltip": false,
+        "on-click": "sh ~/bin/kb-layout.sh --next"
     },
     "custom/system-update": {
         "exec": "sh ~/bin/system-update.sh --status --unupdated-color \"#fab387\" --updated-color \"#a6e3a1\" | cat",

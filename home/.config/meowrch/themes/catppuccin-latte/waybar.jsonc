@@ -196,7 +196,8 @@
         "format": "{short} {variant}",
         "rotate": 0,
         "min-length": 2,
-        "tooltip": false
+        "tooltip": false,
+        "on-click": "sh ~/bin/kb-layout.sh --next"
     },
     "custom/system-update": {
         "exec": "sh ~/bin/system-update.sh --status --unupdated-color \"#df8e1d\" --updated-color \"#40a02b\" | cat",
