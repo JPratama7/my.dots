@@ -144,7 +144,8 @@
         "format-icons": {
             "activated": "󰥔 ",
             "deactivated": " "
-        }
+        },
+        "exec": "sh ~/bin/sleep.sh"
     },
     "custom/battery": {
         "exec": "sh ~/bin/battery.sh --status --discharged-color \"#e64553\" --charged-color \"#40a02b\" | cat",
