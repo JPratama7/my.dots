@@ -8,6 +8,8 @@ function shenv() { export "$1=$2"; }
 
 # Load environment variables from .env file
 source ~/.env
+# Ensure user-local binaries are in PATH
+export PATH="$HOME/.local/bin:$PATH"
 #########################################
 
 # Aliases
