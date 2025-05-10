@@ -59,7 +59,7 @@ class FileSystemManager:
         home = Path.home()
 
         config_path = home / ".config"
-        bin_path = home / "bin"
+        bin_path = home / ".local" / "bin"
         nemo_path = home / ".local" / "share" / "nemo"
         bashrc_path = home / ".bashrc"
         env_path = home / ".env"
@@ -158,7 +158,7 @@ class FileSystemManager:
             exclusions=config_folders_exclusions,
         )
 
-        shutil.copytree(src=Path("./home/bin"), dst=home / "bin", dirs_exist_ok=True)
+        shutil.copytree(src=Path("./home/bin"), dst=home / ".local" / "bin", dirs_exist_ok=True)
         shutil.copytree(
             src=Path("./home/.local/share/nemo"),
             dst=home / ".local" / "share" / "nemo",
@@ -177,7 +177,7 @@ class FileSystemManager:
 
         ##==> Выдаем права
         ##############################################
-        for path in [home / ".config", home / "bin"]:
+        for path in [home / ".config", home / ".local" / "bin"]:
             try:
                 subprocess.run(["sudo", "chmod", "-R", "700", str(path)], check=True)
             except Exception:
