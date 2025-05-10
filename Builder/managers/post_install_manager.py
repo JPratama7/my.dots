@@ -23,9 +23,10 @@ class PostInstallation:
     def _set_gpg_gui_agent():
         data = ""
         try:
-            current = os.read(pathlib.Path.home() / ".gnupg/gpg-agent.conf")
+            with open(pathlib.Path.home() / ".gnupg/gpg-agent.conf", "r") as f:
+                current = f.read()
             if current:
-                data = current.decode("utf-8")
+                data = current
         except Exception:
             logger.error(
                 f"Error reading gpg-agent.conf: {traceback.format_exc()}"

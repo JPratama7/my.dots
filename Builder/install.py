@@ -73,9 +73,9 @@ class Builder:
             tampermonkey=self.build_options.ff_tampermonkey,
         )
 
-        if CUSTOM["development"]["vscode"].selected:
-            AppsManager.configure_vscode()
-
+        if CUSTOM["development"]["code"].selected:
+            AppsManager.configure_code()
+            
         self.daemons_setting()
         PostInstallation.apply()
         logger.warning(
