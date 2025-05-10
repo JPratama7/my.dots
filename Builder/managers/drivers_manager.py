@@ -1,5 +1,6 @@
 import subprocess
 import traceback
+import pathlib
 from typing import List
 
 from loguru import logger
@@ -61,3 +62,7 @@ class DriversManager:
     @staticmethod
     def install_nvidia_drivers() -> None:
         PackageManager.install_packages(packages_list=DRIVERS["nvidia"].pacman.common)
+        logger.info("NVIDIA drivers installed successfully")
+        # Create the configuration file for NVIDIA
+        with open(pathlib.Path.home() / ".config" / "hypr" / "hyprland.conf", "a") as f:
+            f.write("source = ~/.config/hypr/nvidia.conf\n")
