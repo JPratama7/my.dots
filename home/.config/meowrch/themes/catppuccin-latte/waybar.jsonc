@@ -145,7 +145,7 @@
             "activated": "󰥔 ",
             "deactivated": " "
         },
-        "exec": "sh ~/.local/bin/sleep.sh"
+        "on-click": "sh ~/.local/bin/sleep.sh"
     },
     "custom/battery": {
         "exec": "sh ~/.local/bin/battery.sh --status --discharged-color \"#e64553\" --charged-color \"#40a02b\" | cat",
